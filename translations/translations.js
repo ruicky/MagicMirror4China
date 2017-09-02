@@ -20,7 +20,7 @@ var translations = {
 	"sv" : "translations/sv.json", // Svenska
 	"id" : "translations/id.json", // Indonesian
 	"it" : "translations/it.json", // Italian
-	"zh_cn" : "translations/zh_cn.json", // Simplified Chinese
+	"zh-cn" : "translations/zh_cn.json", // Simplified Chinese
 	"zh_tw" : "translations/zh_tw.json", // Traditional Chinese
 	"ja" : "translations/ja.json", // Japanese
 	"pl" : "translations/pl.json", // Polish
