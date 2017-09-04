@@ -290,19 +290,22 @@ Module.register("weatherforecast",{
 	 */
 	processWeather: function(data) {
 		this.fetchedLocationName = data.city.name + ", " + data.city.country;
-
+		
 		this.forecast = [];
 		for (var i = 0, count = data.list.length; i < count; i++) {
-
 			var forecast = data.list[i];
-			this.forecast.push({
-				day: moment(forecast.dt, "X").format("ddd"),
-				icon: this.config.iconTable[forecast.weather[0].icon],
-				maxTemp: this.roundValue(forecast.main.temp_max),
-				minTemp: this.roundValue(forecast.main.temp_min),
-				rain: this.roundValue(forecast.rain)
-
-			});
+			if( forecast.dt > Math.floor(Date.now() / 1000)){
+				console.log('DATA& forecast.dt --->',forecast.dt)
+				this.forecast.push({
+					// day: moment(forecast.dt, "X").format("ddd"),
+					day: moment(forecast.dt, "X").fromNow(),
+					icon: this.config.iconTable[forecast.weather[0].icon],
+					maxTemp: this.roundValue(forecast.main.temp_max),
+					minTemp: this.roundValue(forecast.main.temp_min),
+					rain: this.roundValue(forecast.rain)
+	
+				});
+			}
 		}
 
 		//Log.log(this.forecast);
