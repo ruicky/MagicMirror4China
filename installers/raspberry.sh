@@ -131,7 +131,7 @@ if command_exists plymouth; then
 			sudo mkdir $THEME_DIR/MagicMirror4China
 		fi
 
-		if sudo cp ~/MagicMirror4China/splashscreen/splash.png $THEME_DIR/MagicMirror4China/splash.png && sudo cp ~/MagicMirror4China/splashscreen/MagicMirror4China.plymouth $THEME_DIR/MagicMirror4China/MagicMirror4China.plymouth && sudo cp ~/MagicMirror4China/splashscreen/MagicMirror4China.script $THEME_DIR/MagicMirror4China/MagicMirror4China.script; then
+		if sudo cp ~/MagicMirror4China/splashscreen/splash.png $THEME_DIR/MagicMirror4China/splash.png && sudo cp ~/MagicMirror4China/splashscreen/MagicMirror.plymouth $THEME_DIR/MagicMirror4China/MagicMirror4China.plymouth && sudo cp ~/MagicMirror4China/splashscreen/MagicMirror4China.script $THEME_DIR/MagicMirror4China/MagicMirror4China.script; then
 			echo -e "\e[90mSplashscreen: Theme copied successfully.\e[0m"
 			if sudo plymouth-set-default-theme -R MagicMirror4China; then
 				echo -e "\e[92mSplashscreen: Changed theme to MagicMirror4China successfully.\e[0m"
