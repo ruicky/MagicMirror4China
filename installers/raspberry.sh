@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-# This is an installer script for MagicMirror2. It works well enough
+# This is an installer script for MagicMirror4China2. It works well enough
 # that it can detect if you have Node installed, run a binary script
-# and then download and run MagicMirror2.
+# and then download and run MagicMirror4China2.
 
 echo -e "\e[0m"
 echo '$$\      $$\                     $$\           $$\      $$\ $$\                                          $$$$$$\'
@@ -27,7 +27,7 @@ ARM=$(uname -m)
 # Check the Raspberry Pi version.
 if [ "$ARM" != "armv7l" ]; then
 	echo -e "\e[91mSorry, your Raspberry Pi is not supported."
-	echo -e "\e[91mPlease run MagicMirror on a Raspberry Pi 2 or 3."
+	echo -e "\e[91mPlease run MagicMirror4China on a Raspberry Pi 2 or 3."
 	echo -e "\e[91mIf this is a Pi Zero, you are in the same boat as the original Raspberry Pi. You must run in server only mode."
 	exit;
 fi
@@ -80,7 +80,7 @@ if $NODE_INSTALL; then
 
 	# Fetch the latest version of Node.js from the selected branch
 	# The NODE_STABLE_BRANCH variable will need to be manually adjusted when a new branch is released. (e.g. 7.x)
-	# Only tested (stable) versions are recommended as newer versions could break MagicMirror.
+	# Only tested (stable) versions are recommended as newer versions could break MagicMirror4China.
 	
 	NODE_STABLE_BRANCH="6.x"
 	curl -sL https://deb.nodesource.com/setup_$NODE_STABLE_BRANCH | sudo -E bash -
@@ -88,27 +88,27 @@ if $NODE_INSTALL; then
 	echo -e "\e[92mNode.js installation Done!\e[0m"
 fi
 
-# Install MagicMirror
+# Install MagicMirror4China
 cd ~
-if [ -d "$HOME/MagicMirror" ] ; then
-	echo -e "\e[93mIt seems like MagicMirror is already installed."
+if [ -d "$HOME/MagicMirror4China" ] ; then
+	echo -e "\e[93mIt seems like MagicMirror4China is already installed."
 	echo -e "To prevent overwriting, the installer will be aborted."
-	echo -e "Please rename the \e[1m~/MagicMirror\e[0m\e[93m folder and try again.\e[0m"
+	echo -e "Please rename the \e[1m~/MagicMirror4China\e[0m\e[93m folder and try again.\e[0m"
 	echo ""
-	echo -e "If you want to upgrade your installation run \e[1m\e[97mgit pull\e[0m from the ~/MagicMirror directory."
+	echo -e "If you want to upgrade your installation run \e[1m\e[97mgit pull\e[0m from the ~/MagicMirror4China directory."
 	echo ""
 	exit;
 fi
 
-echo -e "\e[96mCloning MagicMirror ...\e[90m"
-if git clone https://github.com/MichMich/MagicMirror.git; then 
-	echo -e "\e[92mCloning MagicMirror Done!\e[0m"
+echo -e "\e[96mCloning MagicMirror4China ...\e[90m"
+if git clone https://github.com/MichMich/MagicMirror4China.git; then 
+	echo -e "\e[92mCloning MagicMirror4China Done!\e[0m"
 else
-	echo -e "\e[91mUnable to clone MagicMirror."
+	echo -e "\e[91mUnable to clone MagicMirror4China."
 	exit;
 fi
 
-cd ~/MagicMirror  || exit
+cd ~/MagicMirror4China  || exit
 echo -e "\e[96mInstalling dependencies ...\e[90m"
 if npm install; then 
 	echo -e "\e[92mDependencies installation Done!\e[0m"
@@ -117,7 +117,7 @@ else
 	exit;
 fi
 
-# Use sample config for start MagicMirror
+# Use sample config for start MagicMirror4China
 cp config/config.js.sample config/config.js
 
 # Check if plymouth is installed (default with PIXEL desktop environment), then install custom splashscreen.
@@ -127,16 +127,16 @@ if command_exists plymouth; then
 	echo -e "\e[90mSplashscreen: Checking themes directory.\e[0m"
 	if [ -d $THEME_DIR ]; then
 		echo -e "\e[90mSplashscreen: Create theme directory if not exists.\e[0m"
-		if [ ! -d $THEME_DIR/MagicMirror ]; then
-			sudo mkdir $THEME_DIR/MagicMirror
+		if [ ! -d $THEME_DIR/MagicMirror4China ]; then
+			sudo mkdir $THEME_DIR/MagicMirror4China
 		fi
 
-		if sudo cp ~/MagicMirror/splashscreen/splash.png $THEME_DIR/MagicMirror/splash.png && sudo cp ~/MagicMirror/splashscreen/MagicMirror.plymouth $THEME_DIR/MagicMirror/MagicMirror.plymouth && sudo cp ~/MagicMirror/splashscreen/MagicMirror.script $THEME_DIR/MagicMirror/MagicMirror.script; then
+		if sudo cp ~/MagicMirror4China/splashscreen/splash.png $THEME_DIR/MagicMirror4China/splash.png && sudo cp ~/MagicMirror4China/splashscreen/MagicMirror4China.plymouth $THEME_DIR/MagicMirror4China/MagicMirror4China.plymouth && sudo cp ~/MagicMirror4China/splashscreen/MagicMirror4China.script $THEME_DIR/MagicMirror4China/MagicMirror4China.script; then
 			echo -e "\e[90mSplashscreen: Theme copied successfully.\e[0m"
-			if sudo plymouth-set-default-theme -R MagicMirror; then
-				echo -e "\e[92mSplashscreen: Changed theme to MagicMirror successfully.\e[0m"
+			if sudo plymouth-set-default-theme -R MagicMirror4China; then
+				echo -e "\e[92mSplashscreen: Changed theme to MagicMirror4China successfully.\e[0m"
 			else
-				echo -e "\e[91mSplashscreen: Couldn't change theme to MagicMirror!\e[0m"
+				echo -e "\e[91mSplashscreen: Couldn't change theme to MagicMirror4China!\e[0m"
 			fi
 		else
 			echo -e "\e[91mSplashscreen: Copying theme failed!\e[0m"
@@ -148,16 +148,16 @@ else
 	echo -e "\e[93mplymouth is not installed.\e[0m";
 fi
 
-# Use pm2 control like a service MagicMirror
-read -p "Do you want use pm2 for auto starting of your MagicMirror (y/n)?" choice
+# Use pm2 control like a service MagicMirror4China
+read -p "Do you want use pm2 for auto starting of your MagicMirror4China (y/n)?" choice
 if [[ $choice =~ ^[Yy]$ ]]; then
     sudo npm install -g pm2
     sudo su -c "env PATH=$PATH:/usr/bin pm2 startup linux -u pi --hp /home/pi"
-    pm2 start ~/MagicMirror/installers/pm2_MagicMirror.json
+    pm2 start ~/MagicMirror4China/installers/pm2_MagicMirror4China.json
     pm2 save
 fi
 
 echo " "
-echo -e "\e[92mWe're ready! Run \e[1m\e[97mDISPLAY=:0 npm start\e[0m\e[92m from the ~/MagicMirror directory to start your MagicMirror.\e[0m"
+echo -e "\e[92mWe're ready! Run \e[1m\e[97mDISPLAY=:0 npm start\e[0m\e[92m from the ~/MagicMirror4China directory to start your MagicMirror4China.\e[0m"
 echo " "
 echo " "

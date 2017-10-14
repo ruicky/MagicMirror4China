@@ -114,6 +114,7 @@ Module.register("calendar", {
 
 		this.calendarData = {};
 		this.loaded = false;
+		console.log('RUICKY TEST ====>', calendar.url)
 	},
 
 	// Override socket notification handler.
@@ -122,7 +123,8 @@ Module.register("calendar", {
 			if (this.hasCalendarURL(payload.url)) {
 				this.calendarData[payload.url] = payload.events;
 				this.loaded = true;
-
+				console.log('RUICKY TEST ====>', 'HHHHHHHHHHKKLHKLH')
+		
 				if (this.config.broadcastEvents) {
 					this.broadcastEvents();
 				}

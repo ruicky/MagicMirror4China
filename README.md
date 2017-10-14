@@ -11,6 +11,9 @@
 
 ![具体文档请查看源文档](https://github.com/MichMich/MagicMirror)
 
+## 快速开始(仅适用于树莓派)
+`bash -c "$(curl -sL https://raw.githubusercontent.com/MichMich/MagicMirror/master/installers/raspberry.sh)"`
+
 ## 优化的不同地方
 1. 由于 `momentjs` 在调用`moment.local()`本地化的方法的时候 ，给的值是`zh-cn`但是， 在 `translation.js`中给的却是 `*zh_cn*` 所以不能汉化钟表等显示。
 1. `weatherforecast`模块在openweathermap获取天气 ** 16 days/daily forecast API ** 不是免费的(详情看![Current weather and forecasts collection](https://openweathermap.org/price)) 顾 修改为 获取 `5 days/3 hour forecast API` 这种类型的api
