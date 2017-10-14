@@ -12,7 +12,7 @@
 ![具体文档请查看源文档](https://github.com/MichMich/MagicMirror)
 
 ## 快速开始(仅适用于树莓派)
-`bash -c "$(curl -sL https://raw.githubusercontent.com/MichMich/MagicMirror/master/installers/raspberry.sh)"`
+`bash -c "$(curl -sL https://raw.githubusercontent.com/ruicky/MagicMirror4China/master/installers/raspberry.sh"`
 
 ## 优化的不同地方
 1. 由于 `momentjs` 在调用`moment.local()`本地化的方法的时候 ，给的值是`zh-cn`但是， 在 `translation.js`中给的却是 `*zh_cn*` 所以不能汉化钟表等显示。
